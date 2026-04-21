@@ -3,56 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time To Apps</title>
+    <title>Time To Apps - Innovación Digital</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5067199982135554" crossorigin="anonymous"></script>
     
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #333; }
-        header { background-color: #2c3e50; color: white; padding: 3rem 1rem; text-align: center; }
-        header h1 { margin: 0; font-size: 2.5rem; }
-        header p { font-size: 1.2rem; font-weight: 300; opacity: 0.9; }
-        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
-        .apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;}
-        .card:hover { transform: translateY(-5px); }
-        .card h3 { color: #2c3e50; margin-top: 0; font-size: 1.5rem;}
-        .card p { color: #555; line-height: 1.5; margin-bottom: 1.5rem; flex-grow: 1;}
-        .btn { display: inline-block; padding: 12px 24px; background-color: #3498db; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; transition: background 0.3s; }
-        .btn:hover { background-color: #2980b9; }
-        footer { text-align: center; padding: 2rem; color: #6c757d; font-size: 0.9rem; margin-top: 2rem; }
+        /* Estilos Base Actualizados (Estilo Motorola/Apple) */
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; padding: 0; background-color: #f5f5f7; color: #1d1d1f; }
+        
+        /* Barra de Navegación Blanca Clásica (Estilo Motorola) */
+        header { 
+            background-color: #ffffff; 
+            border-bottom: 1px solid #e0e0e0; 
+            padding: 10px 5%; /* Padding lateral flexible */
+            position: fixed; /* Mantiene la barra fija arriba */
+            top: 0;
+            width: 90%; /* Ajuste por el padding lateral */
+            z-index: 1000;
+            display: flex;
+            justify-content: flex-end; /* Empuja todo a la derecha */
+            align-items: center;
+            height: 60px; /* Altura estándar de nav */
+        }
+        
+        .brand-container { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; /* Espacio entre logo y texto */
+        }
+        
+        .nav-logo { 
+            height: 40px; /* Tamaño del logo en la barra */
+            width: auto;
+        }
+        
+        .brand-name { 
+            font-size: 1.5rem; 
+            font-weight: 600; 
+            color: #000000; /* Letras negras */
+            margin: 0;
+        }
+
+        /* Espaciado para el contenido principal (debajo de la nav fija) */
+        .container { max-width: 1000px; margin: 100px auto 2rem auto; padding: 0 1rem; }
+        
+        /* Título del Portafolio */
+        .portfolio-title { 
+            text-align: center; 
+            color: #1d1d1f; 
+            margin-bottom: 3rem; 
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        /* Grid de Apps */
+        .apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
+        
+        /* Tarjetas de App Actualizadas */
+        .card { 
+            background: white; 
+            padding: 2.5rem 2rem; 
+            border-radius: 18px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); /* Sombra muy sutil */
+            text-align: center; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; /* Centra el contenido horizontalmente */
+            justify-content: space-between;
+        }
+        
+        .card:hover { transform: translateY(-8px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+        
+        /* Ícono de App */
+        .app-icon { 
+            width: 80px; 
+            height: 80px; 
+            margin-bottom: 1.5rem; 
+            border-radius: 16px; /* Esquinas redondeadas estilo app icon */
+            object-fit: contain; /* Asegura que la imagen no se deforme */
+        }
+
+        .card h3 { color: #1d1d1f; margin: 0 0 1rem 0; font-size: 1.6rem; font-weight: 600;}
+        .card p { color: #515154; line-height: 1.6; margin-bottom: 2rem; flex-grow: 1; font-size: 1rem;}
+        
+        /* Botón Actualizado */
+        .btn { 
+            display: inline-block; 
+            padding: 14px 28px; 
+            background-color: #0071e3; /* Azul estándar tecnológico (Apple/Motorola) */
+            color: white; 
+            text-decoration: none; 
+            border-radius: 22px; /* Botón más redondeado */
+            font-weight: 600; 
+            transition: background 0.3s; 
+            font-size: 0.95rem;
+        }
+        
+        .btn:hover { background-color: #0077ed; }
+        
+        /* Footer */
+        footer { text-align: center; padding: 3rem 1rem 2rem 1rem; color: #6e6e73; font-size: 0.9rem; margin-top: 3rem; border-top: 1px solid #e0e0e0; background-color: #ffffff;}
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Time To Apps</h1>
-        <p>Innovación y desarrollo de experiencias digitales</p>
+        <div class="brand-container">
+            <img src="timetoapps_logo.png" alt="Time To Apps Logo" class="nav-logo">
+            <h1 class="brand-name">Time To Apps</h1>
+        </div>
     </header>
 
     <div class="container">
         <section>
-            <h2 style="text-align: center; color: #2c3e50;">Nuestro Portafolio</h2>
+            <h2 class="portfolio-title">Nuestro Portafolio de Aplicaciones</h2>
             <div class="apps-grid">
                 
                 <div class="card">
+                    <img src="icono_jicaly.png" alt="Ícono de Jicaly" class="app-icon">
                     <h3>Jicaly</h3>
                     <p>Descubre la elegancia y tradición. Tu tienda exclusiva de artesanías de lujo y diseño único directamente en tu móvil.</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.jicaly.app&hl=es_MX" class="btn" target="_blank" rel="noopener noreferrer">Descargar App</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.jicaly.app&hl=es_MX" class="btn" target="_blank" rel="noopener noreferrer">Descargar en Play Store</a>
                 </div>
 
                 <div class="card">
+                    <img src="icono_quizlandia.png" alt="Ícono de Quizlandia" class="app-icon">
                     <h3>Quizlandia</h3>
                     <p>Pon a prueba tus conocimientos y diviértete aprendiendo con nuestras increíbles trivias temáticas.</p>
                     <a href="https://play.google.com/store/apps/details?id=com.isaacveracastillo.quizpalaceapk" class="btn" target="_blank" rel="noopener noreferrer">Jugar Ahora</a>
                 </div>
 
                 <div class="card">
+                    <img src="icono_snake.png" alt="Ícono de Snake Classic" class="app-icon">
                     <h3>Snake Classic</h3>
                     <p>Revive la nostalgia con el legendario juego de la serpiente. ¡Afina tus reflejos y alcanza la máxima puntuación!</p>
                     <a href="https://play.google.com/store/apps/details?id=com.timetoapps.snakeclassic" class="btn" target="_blank" rel="noopener noreferrer">Jugar Ahora</a>
                 </div>
 
                 <div class="card">
+                    <img src="icono_gato.png" alt="Ícono de Tic Tac Toe" class="app-icon">
                     <h3>Tic Tac Toe</h3>
                     <p>El clásico y adictivo juego del Gato (Tres en raya) en la palma de tu mano. Ideal para retar a tu mente en cualquier momento.</p>
                     <a href="https://play.google.com/store/apps/details?id=com.isaacveracastillo.tresenrayaapk" class="btn" target="_blank" rel="noopener noreferrer">Jugar Ahora</a>
