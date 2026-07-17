@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad - Quizlandia</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background-color: #f5f5f7;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        h1 { color: #1d1d1f; font-size: 28px; border-bottom: 2px solid #f5f5f7; padding-bottom: 10px; }
+        h2 { color: #2c3e50; font-size: 20px; margin-top: 25px; }
+        p, li { font-size: 16px; color: #424245; }
+        ul { padding-left: 20px; }
+        .highlight { background-color: #fff3cd; padding: 10px; border-left: 4px solid #ffc107; border-radius: 4px; margin: 15px 0; }
+        footer { margin-top: 40px; text-align: center; font-size: 14px; color: #86868b; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Política de Privacidad - Quizlandia</h1>
+    <p><strong>Última actualización:</strong> Julio 2026</p>
+
+    <p>En <strong>Time To Apps</strong>, la privacidad de nuestros usuarios es una prioridad. Esta Política de Privacidad describe cómo se recopila, utiliza y protege la información al utilizar nuestra aplicación móvil <strong>Quizlandia</strong>.</p>
+
+    <hr style="border: 0; height: 1px; background: #e8e8ed; margin: 20px 0;">
+
+    <h2>1. Información que Recopilamos</h2>
+    <p>Para ofrecerte una experiencia de juego óptima, guardar tu progreso y puntuaciones, únicamente recopilamos los siguientes datos de identificación personal al crear o iniciar sesión en tu cuenta:</p>
+    <ul>
+        <li><strong>Nombre de usuario / Nombre de perfil</strong></li>
+        <li><strong>Dirección de correo electrónico</strong></li>
+    </ul>
+
+    <h2>2. Métodos de Inicio de Sesión (Autenticación)</h2>
+    <p>Utilizamos el servicio seguro de <strong>Firebase Authentication (Google)</strong> para gestionar el acceso a la aplicación. Puedes registrarte e iniciar sesión utilizando los siguientes proveedores de terceros:</p>
+    <ul>
+        <li><strong>Correo electrónico y contraseña:</strong> Almacenados de forma cifrada a través de Firebase.</li>
+        <li><strong>Google Sign-In:</strong> Recopila tu nombre y correo vinculados a tu cuenta de Google.</li>
+        <li><strong>Facebook Login:</strong> Recopila tu nombre y correo vinculados a tu cuenta de Facebook.</li>
+        <li><strong>Sign in with Apple:</strong> Recopila tu nombre y correo (o un alias anónimo si decides ocultarlo) vinculados a tu Apple ID.</li>
+    </ul>
+
+    <h2>3. Uso de los Datos</h2>
+    <p>La información recopilada se utiliza exclusivamente para los siguientes fines:</p>
+    <ul>
+        <li>Identificar tu perfil único dentro del juego.</li>
+        <li>Sincronizar tus puntuaciones, estadísticas y progreso en la tabla de clasificación.</li>
+        <li>Permitirte recuperar el acceso a tu cuenta en caso de cambiar de dispositivo.</li>
+    </ul>
+
+    <h2>4. Servicios de Terceros y Publicidad</h2>
+    <p>La aplicación puede integrar servicios de terceros que recopilan información utilizada para identificarte de forma anónima con fines analíticos y publicitarios:</p>
+    <ul>
+        <li><strong>Google Analytics for Firebase:</strong> Para analizar el rendimiento y la estabilidad de la app.</li>
+        <li><strong>Google AdMob:</strong> Para mostrar anuncios publicitarios dentro de la aplicación. AdMob puede recopilar identificadores de publicidad del dispositivo (como el IDFA en iOS) para gestionar la frecuencia de los anuncios y ofrecer publicidad relevante.</li>
+    </ul>
+
+    <div class="highlight">
+        <h2>5. Eliminación de Datos y Cuenta (Requisito Obligatorio)</h2>
+        <p>Tienes el derecho absoluto de acceder, rectificar o solicitar la eliminación de todos tus datos personales en cualquier momento. Si deseas eliminar tu cuenta de <strong>Quizlandia</strong> de forma permanente, dispones de dos opciones:</p>
+        <ol>
+            <li><strong>Desde la aplicación:</strong> Puedes solicitar el borrado de tu cuenta directamente desde el menú de configuración de tu perfil.</li>
+            <li><strong>Por correo electrónico:</strong> Envía una solicitud formal de eliminación indicando el correo electrónico con el que te registraste a: <a href="mailto:contacto@timetoapps.com">contacto@timetoapps.com</a>.</li>
+        </ol>
+        <p>Una vez procesada la solicitud, tu cuenta, progreso, puntuaciones y datos de inicio de sesión asociados en Firebase serán borrados definitivamente de nuestros servidores en un plazo máximo de 72 horas.</p>
+    </div>
+
+    <h2>6. Seguridad de los Datos</h2>
+    <p>Implementamos las medidas de seguridad técnicas que proporciona la infraestructura de Firebase para proteger tu información contra accesos no autorizados, alteraciones o destrucción.</p>
+
+    <h2>7. Cambios en esta Política de Privacidad</h2>
+    <p>Nos reservamos el derecho de actualizar esta política en cualquier momento. Te recomendamos revisar esta página periódicamente para estar al tanto de cualquier cambio.</p>
+
+    <h2>8. Contacto</h2>
+    <p>Si tienes preguntas o dudas sobre esta política de privacidad, puedes contactarnos a través de nuestra página de soporte o escribiendo directamente a nuestro correo electrónico de atención.</p>
+
+    <footer>
+        <p>© 2026 Time To Apps. Todos los derechos reservados.</p>
+    </footer>
+</div>
+
+</body>
+</html>
