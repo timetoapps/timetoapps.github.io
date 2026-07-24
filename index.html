@@ -84,13 +84,12 @@
            3. Estilos del Carrusel / Banner Principal
         ========================================= */
         .carousel-container {
-            max-width: 1200px;
-            margin: 0 auto 2rem auto;
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+          width: 100%; /* Fuerza a ocupar toda la pantalla */
+          margin: 0 0 2rem 0; /* Quita los márgenes laterales */
+          position: relative;
+          overflow: hidden;
+          /* Eliminamos el border-radius para que quede plano contra los bordes */
+         }
 
         .carousel-track {
             display: flex;
@@ -104,11 +103,12 @@
         }
 
         .carousel-slide img {
-            width: 100%;
-            display: block;
-            object-fit: cover;
-            /* Si tus banners son muy altos, puedes limitar la altura máxima aquí: */
-            /* max-height: 400px; */
+          width: 100%;
+          display: block;
+          object-fit: cover;
+          max-height: 50vh;  /* Evita que sea gigante en monitores de PC */
+          min-height: 300px; /* Evita que sea una tira súper delgada en celulares */
+          object-position: center; /* Asegura que al recortar la imagen, el centro sea lo más importante */
         }
 
         /* Puntos indicadores */
@@ -255,25 +255,24 @@
         </nav>
     </header>
 
-    <div class="container">
+    <!-- EL BANNER AHORA ESTÁ AFUERA DEL CONTENEDOR PRINCIPAL -->
+    <section class="carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide"><img src="jicaly_banner.png" alt="Banner Jicaly"></div>
+            <div class="carousel-slide"><img src="quizlandia_banner.png" alt="Banner Quizlandia"></div>
+            <div class="carousel-slide"><img src="snakeclassic_banner.png" alt="Banner Snake Classic"></div>
+            <div class="carousel-slide"><img src="tresenraya_banner.png" alt="Banner Tic Tac Toe"></div>
+        </div>
         
-        <!-- SECCIÓN DEL BANNER / CARRUSEL -->
-        <section class="carousel-container">
-            <div class="carousel-track" id="carouselTrack">
-                <div class="carousel-slide"><img src="jicaly_banner.png" alt="Banner Jicaly"></div>
-                <div class="carousel-slide"><img src="quizlandia_banner.png" alt="Banner Quizlandia"></div>
-                <div class="carousel-slide"><img src="snakeclassic_banner.png" alt="Banner Snake Classic"></div>
-                <div class="carousel-slide"><img src="tresenraya_banner.png" alt="Banner Tic Tac Toe"></div>
-            </div>
-            
-            <div class="carousel-indicators">
-                <span class="dot active" data-index="0"></span>
-                <span class="dot" data-index="1"></span>
-                <span class="dot" data-index="2"></span>
-                <span class="dot" data-index="3"></span>
-            </div>
-        </section>
+        <div class="carousel-indicators">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+        </div>
+    </section>
 
+    <div class="container">
         <!-- SECCIÓN DE APPS -->
         <section>
             <h2 class="portfolio-title">Nuestro Portafolio de Aplicaciones</h2>
