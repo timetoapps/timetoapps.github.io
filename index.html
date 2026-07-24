@@ -104,11 +104,9 @@
 
         .carousel-slide img {
           width: 100%;
+          height: auto; /* Permite que la imagen mantenga su proporción original exacta */
           display: block;
-          object-fit: cover;
-          max-height: 50vh;  /* Evita que sea gigante en monitores de PC */
-          min-height: 300px; /* Evita que sea una tira súper delgada en celulares */
-          object-position: center; /* Asegura que al recortar la imagen, el centro sea lo más importante */
+          /* Al quitar object-fit, max-height y min-height, el navegador ya no forzará recortes */
         }
 
         /* Puntos indicadores */
@@ -255,7 +253,6 @@
         </nav>
     </header>
 
-    <!-- EL BANNER AHORA ESTÁ AFUERA DEL CONTENEDOR PRINCIPAL -->
     <section class="carousel-container">
         <div class="carousel-track" id="carouselTrack">
             <div class="carousel-slide"><img src="jicaly_banner.png" alt="Banner Jicaly"></div>
