@@ -16,7 +16,7 @@
             padding: 0; 
             background-color: #f5f5f7; 
             color: #1d1d1f; 
-            padding-top: 80px; 
+            padding-top: 64px; /* Ajustado a 64px para eliminar el espacio gris entre el header y el carrusel */
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -171,6 +171,9 @@
             text-align: center;
             box-shadow: 0 4px 14px rgba(0,0,0,0.04);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card:hover {
@@ -183,7 +186,7 @@
             height: 90px;
             border-radius: 20px;
             object-fit: cover;
-            margin-bottom: 1rem;
+            margin: 0 auto 1rem auto;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
@@ -200,6 +203,14 @@
             line-height: 1.5;
         }
 
+        /* Grupo de Botones de Descarga */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: auto;
+        }
+
         .btn {
             display: inline-block;
             background: #0071e3;
@@ -214,6 +225,29 @@
 
         .btn:hover {
             background: #005bb5;
+        }
+
+        .btn-ios {
+            display: inline-block;
+            background-color: #6e6e73;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-ios:hover {
+            background-color: #424245;
+        }
+
+        .ios-disabled {
+            font-size: 0.8rem;
+            color: #86868b;
+            font-style: italic;
+            padding: 6px 0;
         }
 
         /* =========================================
@@ -276,31 +310,51 @@
             <div class="apps-grid">
                 
                 <div class="card">
-                    <img src="icono_jicaly.png" alt="Jicaly" class="app-icon">
-                    <h3>Jicaly</h3>
-                    <p>Elegancia y tradición artesanal. Tu tienda exclusiva de piezas de lujo y diseño único.</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.jicaly.app&hl=es_MX" class="btn" target="_blank" rel="noopener noreferrer">Descargar App</a>
+                    <div>
+                        <img src="icono_jicaly.png" alt="Jicaly" class="app-icon">
+                        <h3>Jicaly</h3>
+                        <p>Elegancia y tradición artesanal. Tu tienda exclusiva de piezas de lujo y diseño único.</p>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://play.google.com/store/apps/details?id=com.jicaly.app&hl=es_MX" class="btn" target="_blank" rel="noopener noreferrer">Android (Play Store)</a>
+                        <a href="https://apps.apple.com/mx/app/jicaly-tienda-de-artesan%C3%ADas/id6784003093" class="btn-ios" target="_blank" rel="noopener noreferrer">iOS (App Store)</a>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <img src="icono_quizlandia.png" alt="Quizlandia" class="app-icon">
-                    <h3>Quizlandia</h3>
-                    <p>Desafía tu mente y diviértete con nuestras trivias temáticas diseñadas para aprender jugando.</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.isaacveracastillo.quizpalaceapk" class="btn" target="_blank" rel="noopener noreferrer">Jugar Ahora</a>
+                    <div>
+                        <img src="icono_quizlandia.png" alt="Quizlandia" class="app-icon">
+                        <h3>Quizlandia</h3>
+                        <p>Desafía tu mente y diviértete con nuestras trivias temáticas diseñadas para aprender jugando.</p>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://play.google.com/store/apps/details?id=com.isaacveracastillo.quizpalaceapk" class="btn" target="_blank" rel="noopener noreferrer">Android (Play Store)</a>
+                        <a href="https://apps.apple.com/mx/app/quiz-palace/id1304682951" class="btn-ios" target="_blank" rel="noopener noreferrer">iOS (App Store)</a>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <img src="icono_snake.png" alt="Snake Classic" class="app-icon">
-                    <h3>Snake Classic</h3>
-                    <p>El regreso del juego más icónico. Supera tus récords en esta versión moderna de la serpiente.</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.timetoapps.snakeclassic" class="btn" target="_blank" rel="noopener noreferrer">Jugar Ahora</a>
+                    <div>
+                        <img src="icono_snake.png" alt="Snake Classic" class="app-icon">
+                        <h3>Snake Classic</h3>
+                        <p>El regreso del juego más icónico. Supera tus récords en esta versión moderna de la serpiente.</p>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://play.google.com/store/apps/details?id=com.timetoapps.snakeclassic" class="btn" target="_blank" rel="noopener noreferrer">Android (Play Store)</a>
+                        <span class="ios-disabled">No disponible en iOS</span>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <img src="icono_gato.png" alt="Tic Tac Toe" class="app-icon">
-                    <h3>Tic Tac Toe</h3>
-                    <p>Tres en raya clásico. La forma más sencilla y adictiva de pasar el tiempo retando a tu inteligencia.</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.isaacveracastillo.tresenrayaapk" class="btn" target="_blank" rel="noopener noreferrer">Jugar Ahora</a>
+                    <div>
+                        <img src="icono_gato.png" alt="Tic Tac Toe" class="app-icon">
+                        <h3>Tic Tac Toe</h3>
+                        <p>Tres en raya clásico. La forma más sencilla y adictiva de pasar el tiempo retando a tu inteligencia.</p>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://play.google.com/store/apps/details?id=com.isaacveracastillo.tresenrayaapk" class="btn" target="_blank" rel="noopener noreferrer">Android (Play Store)</a>
+                        <a href="https://apps.apple.com/mx/app/tic-tac-toe-tres-en-raya/id1479926824" class="btn-ios" target="_blank" rel="noopener noreferrer">iOS (App Store)</a>
+                    </div>
                 </div>
 
             </div>
