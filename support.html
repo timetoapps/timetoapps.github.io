@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soporte - Time To Apps</title>
-    
+
     <style>
         /* =========================================
            1. Estilos Base
@@ -19,17 +19,17 @@
             padding: 0; 
             background-color: #f5f5f7; 
             color: #1d1d1f; 
+            padding-top: 80px; 
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            padding-top: 64px;
         }
-        
+
         /* =========================================
-           2. Header / Navegación
+           2. Barra de Navegación (Header)
         ========================================= */
         header {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: saturate(180%) blur(20px);
             -webkit-backdrop-filter: saturate(180%) blur(20px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -52,12 +52,12 @@
         }
 
         .nav-logo {
-            height: 36px;
+            height: 40px;
             border-radius: 8px;
         }
 
         .brand-name {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 600;
             color: #1d1d1f;
             letter-spacing: -0.4px;
@@ -67,7 +67,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 28px;
+            gap: 32px;
             margin: 0;
             padding: 0;
         }
@@ -85,61 +85,144 @@
         }
 
         /* =========================================
-           3. Sección de Soporte
+           3. Contenedor de Soporte
         ========================================= */
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 4rem 6%;
+            padding: 2rem 6%;
             width: 100%;
+            box-sizing: border-box;
         }
 
-        .support-card {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 3rem 2.5rem;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+        .page-title {
             text-align: center;
-        }
-
-        .support-card h1 {
             font-size: 2.2rem;
             font-weight: 600;
             margin-bottom: 1rem;
             letter-spacing: -0.5px;
         }
 
-        .support-card p {
-            font-size: 1.05rem;
-            color: #6e6e73;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            background-color: #0071e3;
-            color: #ffffff;
-            padding: 12px 28px;
-            border-radius: 22px;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: background-color 0.25s ease;
-        }
-
-        .contact-btn:hover {
-            background-color: #0077ed;
+        .page-subtitle {
+            text-align: center;
+            color: #515154;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
         }
 
         /* =========================================
-           4. Footer
+           4. Tarjetas de Apps (FAQ Interactiva)
+        ========================================= */
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .support-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .support-card:hover {
+            border-color: #0071e3;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,113,227,0.1);
+        }
+
+        .support-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            color: #1d1d1f;
+        }
+
+        .support-card p {
+            font-size: 0.9rem;
+            color: #515154;
+            margin: 0;
+        }
+
+        /* =========================================
+           5. Formulario de Contacto
+        ========================================= */
+        .contact-section {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+            scroll-margin-top: 100px;
+        }
+
+        .contact-section h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d2d2d7;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0071e3;
+            box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.2); 
+            background-color: #ffffff;
+        }
+
+        .btn-submit {
+            background: #0071e3;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: #005bb5;
+        }
+
+        /* =========================================
+           6. Footer
         ========================================= */
         footer {
             text-align: center;
             padding: 2rem;
             color: #86868b;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             margin-top: auto;
             border-top: 1px solid #e5e5ea;
             background-color: #ffffff;
@@ -148,9 +231,8 @@
         @media (max-width: 768px) {
             header { padding: 0 4%; }
             .brand-name { display: none; }
-            nav ul { gap: 16px; }
+            nav ul { gap: 15px; }
             nav a { font-size: 0.85rem; }
-            .support-card { padding: 2rem 1.5rem; }
         }
     </style>
 </head>
@@ -158,7 +240,7 @@
 
     <header>
         <div class="brand-container">
-            <img src="timetoapps_logo.jpg" alt="Time To Apps Logo" class="nav-logo">
+            <img src="icono_gato.png" alt="Time To Apps Logo" class="nav-logo">
             <h1 class="brand-name">Time To Apps</h1>
         </div>
 
@@ -173,11 +255,56 @@
     </header>
 
     <div class="container">
-        <div class="support-card">
-            <h1>Centro de Soporte</h1>
-            <p>¿Tienes dudas, encontraste algún error o necesitas ayuda con nuestras aplicaciones (Jicaly, Quizlandia, Tic Tac Toe o Snake Classic)?</p>
-            <p>Escríbenos directamente y nuestro equipo se pondrá en contacto contigo a la brevedad.</p>
-            <a href="mailto:soporte@timetoapps.com" class="contact-btn">Enviar un Correo a Soporte</a>
+        <h2 class="page-title">Centro de Soporte</h2>
+        <p class="page-subtitle">¿En qué podemos ayudarte hoy? Selecciona una aplicación o envíanos un mensaje.</p>
+
+        <div class="support-grid">
+            <div class="support-card" data-app="jicaly">
+                <h3>Jicaly</h3>
+                <p>Ayuda con compras, envíos de piezas y seguimiento de pedidos.</p>
+            </div>
+            <div class="support-card" data-app="quizlandia">
+                <h3>Quizlandia</h3>
+                <p>Reportar errores en las preguntas o problemas con puntuaciones.</p>
+            </div>
+            <div class="support-card" data-app="snake">
+                <h3>Snake Classic</h3>
+                <p>Solución de problemas de rendimiento y guardado de récords.</p>
+            </div>
+            <div class="support-card" data-app="tictactoe">
+                <h3>Tic Tac Toe</h3>
+                <p>Soporte sobre modos de juego y configuraciones.</p>
+            </div>
+        </div>
+
+        <div class="contact-section" id="contact-form-section">
+            <h2>Enviar solicitud de soporte</h2>
+            
+            <form action="https://formspree.io/f/TU_CORREO_AQUI" method="POST">
+                <div class="form-group">
+                    <label for="app-select">Aplicación sobre la que consultas:</label>
+                    <select id="app-select" name="app-select" required>
+                        <option value="">-- Selecciona una opción --</option>
+                        <option value="jicaly">Jicaly</option>
+                        <option value="quizlandia">Quizlandia</option>
+                        <option value="snake">Snake Classic</option>
+                        <option value="tictactoe">Tic Tac Toe</option>
+                        <option value="otros">Otros / Consulta general</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Tu correo electrónico:</label>
+                    <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Describe tu problema o duda:</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Cuéntanos en detalle cómo podemos ayudarte..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Enviar mensaje</button>
+            </form>
         </div>
     </div>
 
@@ -185,5 +312,31 @@
         <p>&copy; 2026 Time To Apps. Todos los derechos reservados.</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.support-card');
+            const appSelect = document.getElementById('app-select');
+            const formSection = document.getElementById('contact-form-section');
+
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const selectedApp = card.getAttribute('data-app');
+                    
+                    if (selectedApp) {
+                        appSelect.value = selectedApp;
+                    }
+                    
+                    formSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    setTimeout(() => {
+                        appSelect.focus();
+                    }, 500); 
+                });
+            });
+        });
+    </script>
 </body>
 </html>
