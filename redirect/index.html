@@ -45,22 +45,18 @@
   </div>
 
   <script>
-    // Extraer query params de PayPal (token, PayerID)
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get('token');
-    const payerId = urlParams.get('PayerID');
+  const urlParams = new URLSearchParams(window.location.search);
+  const token = urlParams.get('token');
+  const payerId = urlParams.get('PayerID');
 
-    // 🔴 CAMBIA ESTE SCHEME SEGÚN TU CASO:
-    // Para Development Build / APK de Producción: "jicaly://paypal-success"
-    // Para Expo Go en red local: "exp://192.168.1.75:8081/--/paypal-success" (reemplaza IP)
-    const APP_SCHEME = "exp://192.168.1.75:8081/--/paypal-success";
+  // En lugar de "/--/paypal-success", envía únicamente la Query String
+  // para que el Listener de Linking en Payment.js reciba la URL sin intentar cambiar la pantalla de forma automática
+  const APP_SCHEME = "exp://192.168.1.75:8081";
 
-    const targetUrl = `${APP_SCHEME}?token=${token || ''}&PayerID=${payerId || ''}`;
+  const targetUrl = `${APP_SCHEME}?status=approved&token=${token || ''}&PayerID=${payerId || ''}`;
 
-    document.getElementById('app-link').href = targetUrl;
-
-    // Intento de redirección automática
-    window.location.href = targetUrl;
-  </script>
+  document.getElementById('app-link').href = targetUrl;
+  window.location.href = targetUrl;
+</script>
 </body>
 </html>
