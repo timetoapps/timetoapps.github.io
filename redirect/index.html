@@ -49,13 +49,10 @@
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get('token');
     const payerId = urlParams.get('PayerID');
+    const target = urlParams.get('target');
 
-    // 🔴 CAMBIA ESTE SCHEME SEGÚN TU CASO:
-    // Para Development Build / APK de Producción: "jicaly://paypal-success"
-    // Para Expo Go en red local: "exp://192.168.1.75:8081/--/paypal-success" (reemplaza IP)
-    const APP_SCHEME = "exp://192.168.1.222:8081/--/paypal-success";
-
-    const targetUrl = `${APP_SCHEME}?token=${token || ''}&PayerID=${payerId || ''}`;
+    const targetScheme = urlParams.get('target') || 'jicaly://paypal-success'; // fallback de seguridad
+    const targetUrl = `${decodeURIComponent(targetScheme)}?token=${token || ''}&PayerID=${payerId || ''}`;
 
     document.getElementById('app-link').href = targetUrl;
 
