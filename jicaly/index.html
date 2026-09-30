@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descargar Jicaly</title>
+  <script>
+    window.onload = function() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      var playStoreUrl = "https://play.google.com/store/apps/details?id=com.jicaly.app&hl=es_MX";
+      var appStoreUrl = "https://apps.apple.com/mx/app/jicaly-tienda-de-artesan%C3%ADas/id6784003093";
+      var fallbackUrl = "https://timetoapps.com/jicaly/home.html"; // Redirige a la página informativa de Jicaly si abren desde PC/Mac
+
+      // Detección de iOS (iPhone, iPad, iPod) incluyendo iPads modernos en modo escritorio
+      var isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+      var isMaciPad = (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+      if (isIOS || isMaciPad) {
+        window.location.replace(appStoreUrl);
+      } 
+      // Detección de Android
+      else if (/android/i.test(userAgent)) {
+        window.location.replace(playStoreUrl);
+      } 
+      // Escritorio / Otros
+      else {
+        window.location.replace(fallbackUrl);
+      }
+    };
+  </script>
+</head>
+<body>
+  <p style="text-align: center; font-family: sans-serif; margin-top: 50px;">
+    Redirigiendo a la tienda de aplicaciones...
+  </p>
+</body>
+</html>
