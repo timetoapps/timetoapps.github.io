@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jicaly - Arte auténtico, diseño único.</title>
+    
+    <style>
+        /* =========================================
+           1. Estilos Base (Dark Mode / Apple Style)
+        ========================================= */
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #000000; 
+            color: #f5f5f7; 
+            padding-top: 64px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Bloqueo de scroll al abrir el menú móvil */
+        body.menu-open {
+            overflow: hidden;
+        }
+        
+        /* =========================================
+           2. Barra de Navegación Oscura
+        ========================================= */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 6%;
+            z-index: 1000;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1001;
+            text-decoration: none;
+        }
+
+        .nav-logo {
+            height: 38px;
+            border-radius: 8px;
+        }
+
+        .brand-name {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #f5f5f7;
+            letter-spacing: -0.4px;
+            margin: 0;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: #a1a1a6;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.25s ease;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        /* Botón Hamburguesa Estilo Apple (Blanco para fondo oscuro) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 18px;
+            height: 1.5px;
+            background-color: #f5f5f7;
+            border-radius: 1px;
+            transition: transform 0.25s cubic-bezier(0.52, 0.16, 0.24, 1);
+        }
+
+        .menu-toggle span:first-child {
+            transform: translateY(-3px);
+        }
+
+        .menu-toggle span:last-child {
+            transform: translateY(3px);
+        }
+
+        /* Transformación a 'X' */
+        .menu-toggle.active span:first-child {
+            transform: translateY(0.75px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:last-child {
+            transform: translateY(-0.75px) rotate(-45deg);
+        }
+
+        /* =========================================
+           3. Banner Principal (Hero Section)
+        ========================================= */
+        .hero-banner {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background-color: #000000;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            letter-spacing: -0.8px;
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #86868b;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        /* Grupo de Botones */
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 26px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #0071e3;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #0077ed;
+            transform: scale(1.02);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.02);
+        }
+
+        /* =========================================
+           4. Contenido & Tarjetas de Características
+        ========================================= */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 6%;
+            box-sizing: border-box;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: #161617;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #86868b;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* =========================================
+           5. Footer y Menú Responsive
+        ========================================= */
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            color: #6e6e73;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 0 5%; }
+            .hero-title { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 1.05rem; }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav {
+                position: fixed;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 64px);
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: saturate(180%) blur(20px);
+                -webkit-backdrop-filter: saturate(180%) blur(20px);
+                box-sizing: border-box;
+                padding: 2rem 8%;
+                
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transition: opacity 0.35s ease, visibility 0.35s ease;
+            }
+
+            nav.active {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+            }
+
+            nav li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            nav a {
+                display: block;
+                padding: 18px 0;
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: #f5f5f7;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Oscuro -->
+    <header>
+        <a href="index.html" class="brand-container">
+            <img src="icono_jicaly.png" alt="Jicaly Logo" class="nav-logo">
+            <h1 class="brand-name">Jicaly</h1>
+        </a>
+
+        <!-- Botón Hamburguesa -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navegación -->
+        <nav id="navMenu">
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#coleccion">Colección</a></li>
+                <li><a href="support.html">Soporte</a></li> 
+                <li><a href="privacidad/index.html">Privacidad</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner Principal / Hero -->
+    <section class="hero-banner">
+        <img src="jicaly_banner.png" alt="Banner Jicaly Exclusivo">
+    </section>
+
+    <!-- Sección Destacada Principal -->
+    <section class="hero-content">
+        <h1 class="hero-title">Jicaly</h1>
+        <p class="hero-subtitle">Elegancia y tradición artesanal. Tu tienda exclusiva de piezas de lujo, diseño único y acabados hechos a mano.</p>
+        
+        <div class="cta-group">
+            <a href="https://apps.apple.com/mx/app/jicaly-tienda-de-artesan%C3%ADas/id6784003093" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Descargar en App Store</a>
+            <a href="https://play.google.com/store/apps/details?id=com.jicaly.app&hl=es_MX" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Disponible en Google Play</a>
+        </div>
+    </section>
+
+    <!-- Sección de Características -->
+    <div class="container" id="coleccion">
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Diseño Exclusivo</h3>
+                <p>Cada pieza cuenta con un proceso de curaduría único, asegurando autenticidad y alta calidad artesanal.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Compra Segura</h3>
+                <p>Experiencia fluida e intuitiva optimizada para dispositivos móviles con pagos 100% protegidos.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Envíos Seleccionados</h3>
+                <p>Entrega garantizada con empaques especiales de protección para preservar el valor de cada artesanía.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Jicaly / Time To Apps. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script para Menú Hamburguesa -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const navLinks = navMenu.querySelectorAll('a');
+
+            const toggleMenu = () => {
+                const isActive = menuToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                document.body.classList.toggle('menu-open', isActive);
+            };
+
+            menuToggle.addEventListener('click', toggleMenu);
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
