@@ -19,11 +19,20 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Bloqueo de scroll al abrir el menú móvil */
         body.menu-open {
             overflow: hidden;
+        }
+
+        /* Efecto Oro Metálico Unificado (Réplica de GoldText) */
+        .gold-gradient-text {
+            background: linear-gradient(180deg, #D2A24D 0%, #C9933F 50%, #A87B2E 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #C9933F; /* Fallback */
         }
         
         /* =========================================
@@ -62,7 +71,6 @@
         .brand-name {
             font-size: 1.35rem;
             font-weight: 600;
-            color: #f5f5f7;
             letter-spacing: -0.4px;
             margin: 0;
         }
@@ -87,7 +95,7 @@
             color: #ffffff;
         }
 
-        /* Botón Hamburguesa Estilo Apple (Blanco para fondo oscuro) */
+        /* Botón Hamburguesa Estilo Apple */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -118,7 +126,6 @@
             transform: translateY(3px);
         }
 
-        /* Transformación a 'X' */
         .menu-toggle.active span:first-child {
             transform: translateY(0.75px) rotate(45deg);
         }
@@ -128,7 +135,7 @@
         }
 
         /* =========================================
-           3. Banner Principal (Hero Section)
+           3. Banner Principal & Introducción
         ========================================= */
         .hero-banner {
             width: 100%;
@@ -146,30 +153,25 @@
 
         .hero-content {
             text-align: center;
-            padding: 3rem 1.5rem;
-            max-width: 800px;
+            padding: 3rem 1.5rem 2rem 1.5rem;
+            max-width: 820px;
             margin: 0 auto;
         }
 
         .hero-title {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 700;
             margin: 0 0 1rem 0;
-            letter-spacing: -0.8px;
-            background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            letter-spacing: 1.5px;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
-            color: #86868b;
-            line-height: 1.5;
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            line-height: 1.55;
+            margin-bottom: 2.2rem;
             font-weight: 400;
         }
 
-        /* Grupo de Botones */
         .cta-group {
             display: flex;
             justify-content: center;
@@ -187,36 +189,113 @@
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
         }
 
         .btn-primary {
-            background: #0071e3;
-            color: #ffffff;
+            background: linear-gradient(180deg, #D2A24D 0%, #C9933F 50%, #A87B2E 100%);
+            color: #000000;
         }
 
         .btn-primary:hover {
-            background: #0077ed;
-            transform: scale(1.02);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
+            filter: brightness(1.08);
             transform: scale(1.02);
         }
 
         /* =========================================
-           4. Contenido & Tarjetas de Características
+           4. Fila Deslizable de Categorías
+        ========================================= */
+        .categories-section {
+            width: 100%;
+            padding: 2rem 0 3rem 0;
+        }
+
+        .categories-track {
+            display: flex;
+            flex-direction: row;
+            gap: 28px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 12px 6%;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .categories-track::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Edge */
+        }
+
+        .category-btn {
+            flex: 0 0 auto;
+            width: 170px;
+            background: transparent;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            scroll-snap-align: start;
+            transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+            outline: none;
+        }
+
+        .category-btn:hover {
+            transform: translateY(-6px) scale(1.03);
+        }
+
+        .category-btn:active {
+            transform: scale(0.97);
+        }
+
+        .category-img {
+            width: 145px;
+            height: 145px;
+            object-fit: contain;
+            margin-bottom: 14px;
+            display: block;
+            filter: drop-shadow(0 8px 18px rgba(201, 147, 63, 0.14));
+        }
+
+        .category-label {
+            font-size: 1.35rem;
+            font-weight: 500;
+            line-height: 1.25;
+            letter-spacing: -0.2px;
+        }
+
+        /* =========================================
+           5. Mockup Vertical Centrado (iPhone)
+        ========================================= */
+        .iphone-showcase {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem 6% 3.5rem 6%;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .iphone-showcase img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            max-height: 78vh;
+            height: auto;
+            object-fit: contain;
+            border-radius: 28px;
+        }
+
+        /* =========================================
+           6. Contenido & Tarjetas de Características
         ========================================= */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 6%;
+            padding: 2rem 6% 4rem 6%;
             box-sizing: border-box;
         }
 
@@ -224,12 +303,12 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
 
         .feature-card {
             background: #161617;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(210, 162, 77, 0.18);
             border-radius: 20px;
             padding: 2.5rem 2rem;
             text-align: center;
@@ -238,26 +317,84 @@
 
         .feature-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.2);
+            border-color: rgba(210, 162, 77, 0.45);
         }
 
         .feature-card h3 {
             font-size: 1.4rem;
             font-weight: 600;
-            color: #ffffff;
             margin-top: 0;
             margin-bottom: 12px;
         }
 
         .feature-card p {
-            color: #86868b;
+            color: #a1a1a6;
             font-size: 0.98rem;
             line-height: 1.6;
             margin: 0;
         }
 
         /* =========================================
-           5. Footer y Menú Responsive
+           7. Modal de Categoría
+        ========================================= */
+        .category-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.78);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .category-modal.open {
+            display: flex;
+        }
+
+        .modal-box {
+            background: #141416;
+            border: 1px solid rgba(210, 162, 77, 0.35);
+            border-radius: 24px;
+            max-width: 420px;
+            width: 100%;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-box h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.7rem;
+        }
+
+        .modal-box p {
+            color: #a1a1a6;
+            font-size: 0.98rem;
+            line-height: 1.55;
+            margin: 0 0 1.6rem 0;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-close {
+            background: rgba(255, 255, 255, 0.12);
+            color: #f5f5f7;
+        }
+
+        .btn-close:hover {
+            background: rgba(255, 255, 255, 0.22);
+        }
+
+        /* =========================================
+           8. Footer y Menú Responsive
         ========================================= */
         footer {
             text-align: center;
@@ -270,8 +407,11 @@
 
         @media (max-width: 768px) {
             header { padding: 0 5%; }
-            .hero-title { font-size: 2.2rem; }
-            .hero-subtitle { font-size: 1.05rem; }
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.08rem; }
+            .category-btn { width: 145px; }
+            .category-img { width: 120px; height: 120px; }
+            .category-label { font-size: 1.15rem; }
 
             .menu-toggle {
                 display: flex;
@@ -325,9 +465,9 @@
 
     <!-- Header Oscuro -->
     <header>
-        <a href="index.html" class="brand-container">
-            <img src="icono_jicaly.png" alt="Jicaly Logo" class="nav-logo">
-            <h1 class="brand-name">Jicaly</h1>
+        <a href="../index.html" class="brand-container">
+            <img src="../icono_jicaly.png" alt="Jicaly Logo" class="nav-logo">
+            <h1 class="brand-name gold-gradient-text">Jicaly</h1>
         </a>
 
         <!-- Botón Hamburguesa -->
@@ -339,44 +479,86 @@
         <!-- Navegación -->
         <nav id="navMenu">
             <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="#categorias">Categorías</a></li>
                 <li><a href="#coleccion">Colección</a></li>
-                <li><a href="support.html">Soporte</a></li> 
-                <li><a href="privacidad/index.html">Privacidad</a></li>
+                <li><a href="../support.html">Soporte</a></li> 
+                <li><a href="../privacidad/index.html">Privacidad</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Banner Principal / Hero -->
     <section class="hero-banner">
-        <img src="jicaly_banner.webp" alt="Banner Jicaly Exclusivo">
+        <img src="../jicaly_banner.webp" alt="Banner Jicaly Exclusivo">
     </section>
 
     <!-- Sección Destacada Principal -->
     <section class="hero-content">
-        <h1 class="hero-title">Jicaly</h1>
-        <p class="hero-subtitle">Elegancia y tradición artesanal. Tu tienda exclusiva de piezas de lujo, diseño único y acabados hechos a mano.</p>
+        <h2 class="hero-title gold-gradient-text">JICALY</h2>
+        <p class="hero-subtitle gold-gradient-text">Elegancia y tradición artesanal. Tu tienda exclusiva de artesanías de lujo, diseño único y acabados hechos a mano.</p>
         
         <div class="cta-group">
-            <a href="https://apps.apple.com/mx/app/jicaly-tienda-de-artesan%C3%ADas/id6784003093" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Descargar en App Store</a>
-            <a href="https://play.google.com/store/apps/details?id=com.jicaly.app&hl=es_MX" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Disponible en Google Play</a>
+            <a href="https://timetoapps.com/jicaly/index.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Descargar en App Store y Play Store</a>
         </div>
+    </section>
+
+    <!-- Fila Deslizable de Categorías -->
+    <section class="categories-section" id="categorias" aria-label="Categorías de artesanías">
+        <div class="categories-track" id="categoriesTrack">
+            <button type="button" class="category-btn" data-category="Talavera" data-desc="Piezas de cerámica esmaltada elaboradas a mano siguiendo la tradición artesanal.">
+                <img src="jarron_talavera.png" alt="Talavera" class="category-img">
+                <span class="category-label gold-gradient-text">Talavera</span>
+            </button>
+
+            <button type="button" class="category-btn" data-category="Alebrijes" data-desc="Esculturas fantásticas talladas y pintadas a mano con minucioso detalle.">
+                <img src="alebrije_búho.png" alt="Alebrijes" class="category-img">
+                <span class="category-label gold-gradient-text">Alebrijes</span>
+            </button>
+
+            <button type="button" class="category-btn" data-category="Barro Negro" data-desc="Obras únicas en barro bruñido con acabados oscuros y relieves tradicionales.">
+                <img src="barro_negro.png" alt="Barro Negro" class="category-img">
+                <span class="category-label gold-gradient-text">Barro<br>Negro</span>
+            </button>
+
+            <button type="button" class="category-btn" data-category="Huichol" data-desc="Arte simbólico y geométrico con vibrante identidad cultural y diseño exclusivo.">
+                <img src="huichol_lion.png" alt="Huichol" class="category-img">
+                <span class="category-label gold-gradient-text">Huichol</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Mockup Vertical Centrado -->
+    <section class="iphone-showcase">
+        <img src="jicaly_iphone_web.jpg" alt="Aplicación Jicaly en iPhone">
     </section>
 
     <!-- Sección de Características -->
     <div class="container" id="coleccion">
         <div class="features-grid">
             <div class="feature-card">
-                <h3>Diseño Exclusivo</h3>
+                <h3 class="gold-gradient-text">Diseño Exclusivo</h3>
                 <p>Cada pieza cuenta con un proceso de curaduría único, asegurando autenticidad y alta calidad artesanal.</p>
             </div>
             <div class="feature-card">
-                <h3>Compra Segura</h3>
+                <h3 class="gold-gradient-text">Compra Segura</h3>
                 <p>Experiencia fluida e intuitiva optimizada para dispositivos móviles con pagos 100% protegidos.</p>
             </div>
             <div class="feature-card">
-                <h3>Envíos Seleccionados</h3>
+                <h3 class="gold-gradient-text">Envíos Seleccionados</h3>
                 <p>Entrega garantizada con empaques especiales de protección para preservar el valor de cada artesanía.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal al pulsar una categoría -->
+    <div class="category-modal" id="categoryModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-box">
+            <h3 id="modalTitle" class="gold-gradient-text">Categoría</h3>
+            <p id="modalDesc"></p>
+            <div class="modal-actions">
+                <a href="https://timetoapps.com/jicaly/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ver en la App</a>
+                <button type="button" class="btn btn-close" id="closeModalBtn">Cerrar</button>
             </div>
         </div>
     </div>
@@ -386,7 +568,7 @@
         <p>&copy; 2026 Jicaly / Time To Apps. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Script para Menú Hamburguesa -->
+    <!-- Script para Menú Hamburguesa y Categorías -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const menuToggle = document.getElementById('menuToggle');
@@ -407,6 +589,29 @@
                         toggleMenu();
                     }
                 });
+            });
+
+            // Interacción de botones de categoría
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const categoryModal = document.getElementById('categoryModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDesc = document.getElementById('modalDesc');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+
+            categoryButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const title = btn.getAttribute('data-category');
+                    const desc = btn.getAttribute('data-desc');
+                    modalTitle.textContent = title;
+                    modalDesc.textContent = desc;
+                    categoryModal.classList.add('open');
+                });
+            });
+
+            const closeModal = () => categoryModal.classList.remove('open');
+            closeModalBtn.addEventListener('click', closeModal);
+            categoryModal.addEventListener('click', (e) => {
+                if (e.target === categoryModal) closeModal();
             });
         });
     </script>
